@@ -59,8 +59,9 @@ func main() {
 ```
 
 ## TODO
-- [] exhaustive tests
-- [] benchmarks
-- [] autoscaling
-- [] more examples
-- [] test and coverage reporting
+- [ ] exhaustive tests
+- [ ] benchmarks
+- [ ] autoscaling
+- [ ] more examples
+- [ ] test and coverage reporting
+- [ ] commit hooks
