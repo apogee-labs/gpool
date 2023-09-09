@@ -29,10 +29,10 @@ func main() {
 		return s + " World", nil
 	})
 
-	// create a pool with 10 workers and the 2 processors
-	pool := gp.NewPool(context.TODO(), 10, processorA, processorB)
+	// create a pool with 10 workers and one or more processors
+	pool := gp.NewPool(context.TODO(), 10, processorA)
 	// processors can also be added after the pool is created with:
-	// pool.AddProcessors(processorA, processorB)
+	pool.AddProcessors(processorB)
 	
 	numJobs := 100
 	
@@ -61,4 +61,6 @@ func main() {
 ## TODO
 - [] exhaustive tests
 - [] benchmarks
+- [] autoscaling
 - [] more examples
+- [] test and coverage reporting
