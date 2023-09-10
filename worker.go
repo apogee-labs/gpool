@@ -37,12 +37,13 @@ func (w *worker) addProcessor(p IProcessor) {
 	}()
 }
 
-func (w *worker) loop() {
-	// create an emitter goroutine for each processor
-	for _, p := range w.processors {
+func (w *worker) addProcessors(ps []IProcessor) {
+	for _, p := range ps {
 		w.addProcessor(p)
 	}
+}
 
+func (w *worker) loop() {
 	for {
 		select {
 		case <-w.ctx.Done():

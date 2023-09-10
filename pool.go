@@ -50,6 +50,7 @@ func (p *Pool) addWorker(ctx context.Context) {
 	defer p.mu.Unlock()
 	// create a new worker
 	w := newWorker(ctx, p.processors)
+	w.addProcessors(p.processors)
 	p.workers = append(p.workers, w)
 	// start the worker loop
 	go w.loop()
