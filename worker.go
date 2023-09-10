@@ -18,9 +18,9 @@ type worker struct {
 func (w *worker) addProcessor(p IProcessor) {
 	w.processors = append(w.processors, p)
 	w.processorWg.Add(1)
+	r := p.register()
 
 	go func() {
-		r := p.register()
 		defer func() {
 			w.processorWg.Done()
 			r.Cancel()
